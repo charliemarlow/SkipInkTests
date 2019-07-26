@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test case for text-decoration-skip-ink</title>
+    <style>
+        #text{
+            text-decoration: underline;
+            text-decoration-style: solid;
+            text-decoration-color: green;
+            font-size: 100px;
+            text-decoration-skip-ink: auto;
+            text-underline-offset: auto;
+            text-decoration-thickness: auto;
+            color: black;
+            border: black solid;
+            font-family: Times;
+            animation: slidein 5s linear 1s infinite alternate;
+            letter-spacing: 30px;
+        }
+        #test{
+            font-family: Arial, serif;
+            font-size: 2em;
+            text-decoration-skip-ink: auto;
+        }
+    /*
+        @keyframes slidein {
+          from {
+            text-underline-offset: 40px;
+            text-decoration-thickness: 1px;
+              letter-spacing: 1px;
+            color: #2fb012;
+          }
+
+          to {
+           text-underline-offset: -80px;
+            text-decoration-thickness: 10px;
+              letter-spacing: 10px;
+            color: #124bad;
+          }
+        }  
+    </style>
+</head>
+<body>
+    <div>Testing for different descenders </div>
+    <div id="text" style="font-family: monospace">type g</div>
+    <div style="letter-spacing: 25px"><pre>0 1 2 3 4 5</pre></div>
+      
+    <div>Basic: No ligatures, unnecessary spaces, etc</div>
+    <div id="text">This is a vur ease test</div>
+    <div id="text">  piggy pfingy</div>
+    <div id="text">piggy pfingy pongy pingy pongy pingy!</div>
+    <div>Every descender, added unnecessary spaces and forced line break</div>
+    <div id="text"><pre>        lovely;  </pre>        pi,ng p;ong  ,  jopkes<br>ey qyp  p</div>
+    <div>Detailed Glyphs with descenders</div>
+    <div id="text">Qy, Jqp; figy,y </div>
+    <div>Descenders with ligatures/spaces mixed in</div>
+    <div id="text">  Pingy figleaf     pongy bd pod pqc oc jopkes         query pong</div>
+    <div>Multiple styles in one</div>
+    <div id="text"> on         g <span id="test" style="text-decoration: underline purple; text-underline-offset: 50px;"> pingy       pog</span> pong</div>
+<div>Multiple glyph runs</div>
+    <div id="text"> 🙰🙵●︎🖳︎  ⬧︎♎︎♐︎ ♑︎ ♒︎</div>-->
+    <div id="text">सेj ों</div>
+    <div id="text" style="font-family: Times">figleaper जो leapه</div>
+    <div id="text">བཀའ་བརྒྱུད། म्म्म्म्म्म्म्म्रू الله</div>
+    <div>Other languages (1. Hindi, LTR, 2. Urdu (Pakistan), RTL) Bug: RTL in Urdu</div>
+    <div id="text">फ्लिपिंग फ्लॉपिंग यह जानकारी का एक लंबा पैराग्राफ है जो पूरी तरह से लिखित है और गुगों द्वारा अनुवादित है</div>
+    <div id="text">شترروایتوںکےم   testy westy bby تونانفرادینوعیتکےحام</div>
+    <div id="text">ہوتہیں</div> 
+    <div> Wingdings, symbols, and emojis!</div>
+    <div id="text">اtest</div>
+    <div id="text">❄︎⍓︎◻︎♏︎ ⍓︎ا□︎◆︎❒︎ ⧫︎♏︎⌧︎⧫︎ ♒︎♏︎ ❒︎♏︎📬︎ 🕆︎⬧︎♏︎ ♋︎●︎●︎ ♍︎♋︎◻︎⬧︎ ♐︎□︎❒︎ ⬥︎  ♎︎ ♑︎♋︎⬧︎⧫︎♏︎❒︎🕯︎⬧︎ ●︎♋︎■︎♑︎◆︎♋︎♑︎♏︎ 🖳︎✆︎
+❞︎✏︎@✁︎ 👓︎🕭︎♈︎🕮︎🖂︎🕿︎ ✆︎♉︎🖃︎♊︎📂︎📄︎🗏︎🗐︎ 🗄︎⌛︎🖮︎🖰︎🖲︎📁︎📫︎🖬︎❑︎⬥︎♏︎  ❒︎⧫︎⍓︎◆︎♓︎□︎ ◻︎☯︎☸︎ॐ︎ ❀︎❝︎✿︎❑︎⬥︎♏︎ ❒︎⧫︎⍓︎◆︎♓︎  □︎◻︎♋︎⬧︎♎︎♐︎ ♑︎ ♒︎🙰🙵●︎🖳︎ ✂︎♋︎⬧︎♎︎♐︎♑︎ ♒︎🙰🙵●︎🖴︎🕯︎⌘︎ ⌧︎♍︎❖︎♌︎■︎❍︎📪︎📬︎📭︎⌘︎⌧︎ ♍︎❖︎ ♌︎■︎❍︎🖫︎ ✇︎✍︎✍︎∫</div> -->
+
+</body>
+</html>
