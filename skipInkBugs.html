@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Edge cases for text-decoration-skip-ink</title>
+    <style>
+        @font-face { font-family:awami; src: url(AwamiNastaliq-Regular.woff); }
+        p { font: 36px/2 times, serif; text-underline-offset: -.5em;}
+        u { text-decoration-thickness: 2px; text-decoration-color: red; }
+        .awami { font-family: awami, sans-serif; }
+        
+        #text{
+            text-decoration: green solid underline;
+            font-size: 100px;
+            border: black solid;
+            font-family: Times;
+        }
+    </style>
+</head>
+<body>
+    <div id="text" style="text-underline-offset: -90px">وो</div>
+    <div id="text" style="text-underline-offset: -25px">ش a</div>
+    <p dir=rtl class=awami style="unicode-bidi:bidi-override; width: 50px; margin-left: 100px;"><u>fی علي</u></p>
+</body>
+</html>
