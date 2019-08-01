@@ -18,8 +18,11 @@
     </style>
 </head>
 <body>
+    <div>These two cases are the same bug, there are two characters stored in two different text frames. The decoration line is drawn from the beginning of the character (aParams.pt.x) until the end (aParams.pt.x + aParams.lineSize.width), skipping ink only for that character. In the first case, this causes the line to "spill over" onto the character on the right side, and in the second case the spill over is from the decoration line rendered by the right character being rendered on the glyph on the left side</div>
     <div id="text" style="text-underline-offset: -90px">وो</div>
     <div id="text" style="text-underline-offset: -25px">ش a</div>
+    <div><br>Except for the s on the second line, these two lines of text are identical. When you add the s on the second line, it changes the aParams.pt.x of the first line, decreasing it by 5. This in turn creates the correct results. PaintDecorationLine seems to be getting an incorrect location in the first case.</div>
     <p dir=rtl class=awami style="unicode-bidi:bidi-override; width: 50px; margin-left: 100px;"><u>fی علي</u></p>
+    <p dir=rtl class=awami style="unicode-bidi:bidi-override; width: 50px; margin-left: 100px;"><u>fی علsي</u></p>
 </body>
 </html>
