@@ -4,15 +4,19 @@
     <meta charset="utf-8">
     <title>Test case for text-decoration-skip-ink</title>
     <style>
+@font-face { font-family: SegoeEmoji; src: url(NightmarePills-BV2w.ttf); }
+p { font: 36px/2 times, serif; text-underline-offset: -.5em;
+    animation: 5s infinite alternate anim; animation-timing-function: linear; }
+u { text-decoration-thickness: 2px; text-decoration-color: red; }
+.arial { font-family: arial, sans-serif; }
+.awami { font-family: awami, sans-serif; }
         #text{
             text-decoration: underline;
-            text-decoration-style: solid;
             text-decoration-color: green;
+            text-decoration-style: solid;
             font-size: 100px;
             text-decoration-skip-ink: auto;
-            text-underline-offset: auto;
-            text-decoration-thickness: auto;
-            color: black;
+            text-underline-offset:auto;
             border: black solid;
             font-family: Times;
             animation: slidein 5s linear 1s infinite alternate;
@@ -22,25 +26,43 @@
             font-size: 2em;
             text-decoration-skip-ink: auto;
         }
+
         @keyframes slidein {
             from {
+                text-decoration-thickness: 3px;
                 text-underline-offset: 40px;
-                text-decoration-thickness: 1px;
-                letter-spacing: 1px;
+
             }
 
             to {
-                text-underline-offset: -80px;
-                text-decoration-thickness: 10px;
-                letter-spacing: 10px;
+                text-decoration-thickness: 20px;
+                text-underline-offset: -100px;
             }
         }  
+        body {
+  color: #172b4d;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+               "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  letter-spacing: 0
+}
+
     </style>
 </head>
 <body>
+    <div style="font-family: SegoeEmoji; font-size: 200px; text-underline-offset: -80px"><u>afddljka 🏴󠁵</u>󠁳󠁣󠁡󠁿</div>
+    
+    <div>agejibpou</div>
+    
+    <div id="text">g n p d qy</div>
+    
+    <div id="text" style="writing-mode: sideways-rl; margin-left: 200px;">g n p d qy</div>
+    <div id="text" style="writing-mode: vertical-lr; margin-left: 200px; text-underline-offset: -20px;">g n p d qy</div>
     <div>Testing for different descenders </div>
     <div id="text" style="font-family: monospace">type g</div>
-    <div style="letter-spacing: 25px"><pre>0 1 2 3 4 5</pre></div>
+<div style="letter-spacing: 25px"><pre>0 1 2 3 4 5</pre></div>
     
     <div>Basic: No ligatures, unnecessary spaces, etc</div>
     <div id="text">piggy pingy pongy pingy pongy pingy!</div>
@@ -50,23 +72,28 @@
     
     <div>Detailed Glyphs with descenders</div>
     <div id="text">Qy, Jqp; figy,y </div>
-    
     <div>Descenders with ligatures/spaces mixed in</div>
     <div id="text">  Pingy figleaf     pongy bd pod pqc oc jopkes         query pong</div>
-    
+
+    <div id="text">figlea pong</div>
     <div>Multiple styles in one</div>
-    <div id="text"> on         g <span id="test" style="text-decoration: underline purple; text-underline-offset: 20px;"> pingy       pog</span> pong</div>
-    
+    <div id="text" style="text-underline-offset: auto;">o<span id="test" style="text-decoration: underlinefadsfasd purple; "> pingy</span></div>
+    <div id="text" style="writing-mode: vertical-rl">o<span id="test" style="text-decoration: none; text-underline-offset: auto;"> pingy</span></div>
     <div>Multiple glyph runs</div>
-    <div id="text"> 🙰🙵●︎🖳︎  ⬧︎♎︎♐︎ ♑︎ ♒︎</div>
+    <div id="text">🙰⬧︎</div>
     <div id="text" style="font-family: Times">figleaper जो leapه</div>
-    <div id="text">བཀའ་བརྒྱུད། म्म्म्म्म्म्म्म्रू الله</div>
-    
+    <div id="text">བཀའ་བརྒྱུད། म्म्म्म्म्म्म्म्रू اللשלום להתראות זה מבחןه</div>
+    <div id="text">你好再見暴躁這是一個考驗</div>
+
+<div id="text">שלום להתראות זה מבחן</div>
     <div>Other languages (1. Hindi, LTR, 2. Urdu (Pakistan), RTL) Bug: RTL in Urdu</div>
-    <div id="text">फ्लिपिंग फ्लॉपिंग यह जानकारी का एक लंबा पैराग्राफ है जो पूरी तरह से लिखित है और गुगों द्वारा अनुवादित है</div>
-    <div id="text">شترروایتوںکےم   testy westy bby تونانفرادینوعیتکےحام</div>
-    <div id="text">ہوتہیں</div> 
-    
+    <div id="text">ी से है गु</div>
+    <div id="text" style="text-underline-offset: -90px">وो</div>
+         <div id="text">फ्लिपिंग फ्लॉपिंग यह जानकारी का एक लंबा पैराग्राफ है जنانفرادینو عیتکےنا نفرادینوع یتکے نانفرادین وعیتکےो पूरी तरह से लिखित है और गुगों द्वारा अनुवादित है</div>
+        <div id="text" style="text-underline-offset: -90px">وो</div>
+    <div id="text" style="text-underline-offset: -25px">ش a</div>
+        <p dir=rtl class=awami style="unicode-bidi:bidi-override; width: 50px; margin-left: 100px;"><u>fی علي</u></p>
+<div id="text">شترروایتوںکےم   testy w αντίο δοκιμή αυτό είναι ένα τεστ تونانفرادینوعیتکےحام</div>
     <div> Wingdings, symbols, and emojis!</div>
     <div id="text">اtest</div>
     <div id="text">❄︎⍓︎◻︎♏︎ ⍓︎ا□︎◆︎❒︎ ⧫︎♏︎⌧︎⧫︎ ♒︎♏︎ ❒︎♏︎📬︎ 🕆︎⬧︎♏︎ ♋︎●︎●︎ ♍︎♋︎◻︎⬧︎ ♐︎□︎❒︎ ⬥︎  ♎︎ ♑︎♋︎⬧︎⧫︎♏︎❒︎🕯︎⬧︎ ●︎♋︎■︎♑︎◆︎♋︎♑︎♏︎ 🖳︎✆︎
