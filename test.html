@@ -6,7 +6,9 @@
     <style>
 @font-face { font-family: SegoeEmoji; src: url(NightmarePills-BV2w.ttf); }
 p { font: 36px/2 times, serif; text-underline-offset: -.5em;
-    animation: 5s infinite alternate anim; animation-timing-function: linear; }
+     animation: 5s infinite alternate anim; animation-timing-function: linear; }
+     .label { font: 12px/2 times}
+     .bold { font-weight: bold}
 u { text-decoration-thickness: 2px; text-decoration-color: red; }
 .arial { font-family: arial, sans-serif; }
 .awami { font-family: awami, sans-serif; }
@@ -40,7 +42,7 @@ u { text-decoration-thickness: 2px; text-decoration-color: red; }
                 text-underline-offset: -100px;
                 color: blue;
             }
-        }  
+        }
         body {
   color: #172b4d;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -55,49 +57,59 @@ u { text-decoration-thickness: 2px; text-decoration-color: red; }
 </head>
 <body>
     <!--<div style="font-family: SegoeEmoji; font-size: 200px; text-underline-offset: -80px"><u>afddljka 🏴󠁵</u>󠁳󠁣󠁡󠁿</div>-->
-    
-    <div>agejibpou</div>
-    
-    <div id="text">g n p d qy</div>
-    
-    <div id="text" style="writing-mode: sideways-rl; margin-left: 200px;">g n p d qy</div>
-    <div id="text" style="writing-mode: vertical-lr; margin-left: 200px; text-underline-offset: -20px;">g n p d qy</div>
-    <div>Testing for different descenders </div>
-    <div id="text" style="font-family: monospace">type g</div>
+
+    <p class="label">This page is a series of informal tests I developed while building text-decoration-skip-ink, text-underline-offset, and text-decoration-thickness. The animation moves the underline up and down using text-underline offset, changes the thickness with text-decoration-thickness, and avoids skips ink as it moves through the text. <br><br> I used these tests to avoid regressions, ensure each feature worked together correctly, discover edge cases for formal tests, and communicate with my manager and team members about the state of my project.</p>
+
+    <p class="label bold">General case: horizontal text with descenders (the p's and g's)</p>
+    <div id="text">ping pong</div>
+
+
+    <p class="label bold">sideways-rl and sideways-lr Writing Mode</p>
+    <div style="display: flex">
+        <div id="text" style="writing-mode: sideways-rl; margin-left: 200px;">ping pong</div>
+        <div id="text" style="writing-mode: sideways-lr; margin-left: 200px;">ping pong</div>
+    </div>
+
+    <p class="label bold">vertical-rl and vertical-lr Writing Mode</p>
+    <div style="display: flex">
+        <div id="text" style="writing-mode: vertical-rl; margin-left: 200px; text-underline-offset: -20px;">ping pong</div>
+        <div id="text" style="writing-mode: vertical-lr; margin-left: 200px; text-underline-offset: -20px;">ping pong</div>
+    </div>
+
+    <p class="label bold">Testing for different descenders </p>
+        <div id="text" style="font-family: monospace">type g</div>
 <div style="letter-spacing: 25px"><pre>0 1 2 3 4 5</pre></div>
-    
-    <div>Basic: No ligatures, unnecessary spaces, etc</div>
+
+    <p class="label bold">Basic Test: No ligatures, unnecessary spaces, etc</p>
     <div id="text">piggy pingy pongy pingy pongy pingy!</div>
-    
-    <div>Every descender, added unnecessary spaces and forced line break</div>
+
+    <p class="label bold">Every descender, added unnecessary spaces and forced line break</p>
     <div id="text"><pre>        lovely;  </pre>        pi,ng p;ong  ,  jopkes<br>ey qyp  p</div>
-    
-    <div>Detailed Glyphs with descenders</div>
-    <div id="text">Qy, Jqp; figy,y </div>
-    <div>Descenders with ligatures/spaces mixed in</div>
+
+    <p class="label bold">Detailed glyphs and ligatures with descenders</p>
+    <div id="text">Qy, Jqp; fig, </div>
+
+    <p class ="label bold">Descenders with ligatures/spaces mixed in</p>
     <div id="text">  Pingy figleaf     pongy bd pod pqc oc jopkes         query pong</div>
 
-    <div id="text">figlea pong</div>
-    <div>Multiple styles in one</div>
+    <p class="label bold">Multiple styles in one text run</p>
     <div id="text" style="text-underline-offset: auto;">o<span id="test" style="text-decoration: underlinefadsfasd purple; "> pingy</span></div>
-    <!--<div id="text" style="writing-mode: vertical-rl">o<span id="test" style="text-decoration: none; text-underline-offset: auto;"> pingy</span></div>-->
-    <div>Multiple glyph runs</div>
+
+    <p class="label bold">Multiple glyph runs, languages, etc</p>
     <div id="text">🙰⬧︎</div>
     <div id="text" style="font-family: Times">figleaper जो leapه</div>
     <div id="text">བཀའ་བརྒྱུད། म्म्म्म्म्म्म्म्रू اللשלום להתראות זה מבחןه</div>
-    <div id="text">你好再見暴躁這是一個考驗</div>
+
+    <!--     <p class="label bold">Certain languages like Chinese do not use skip-ink because it extra horizontal lines can change the meanings of some words and are confusing for readers.</p>
+    <div id="text">你好再見暴躁這是一個考驗</div>-->
 
 <div id="text">שלום להתראות זה מבחן</div>
-    <div>Other languages (1. Hindi, LTR, 2. Urdu (Pakistan), RTL) Bug: RTL in Urdu</div>
-    <div id="text">ी से है गु</div>
+    <p class="label bold">Other languages, both LTR and RTL</p>
     <div id="text" style="text-underline-offset: -90px">وो</div>
          <div id="text">फ्लिपिंग फ्लॉपिंग यह जानकारी का एक लंबा पैराग्राफ है जنانفرادینو عیتکےنا نفرادینوع یتکے نانفرادین وعیتکےो पूरी तरह से लिखित है और गुगों द्वारा अनुवादित है</div>
-        <div id="text" style="text-underline-offset: -90px">وो</div>
     <div id="text" style="text-underline-offset: -25px">ش a</div>
-        <p dir=rtl class=awami style="unicode-bidi:bidi-override; width: 50px; margin-left: 100px;"><u>fی علي</u></p>
 <div id="text">شترروایتوںکےم   testy w αντίο δοκιμή αυτό είναι ένα τεστ تونانفرادینوعیتکےحام</div>
-    <div> Wingdings, symbols, and emojis!</div>
-    <div id="text">اtest</div>
+    <p class="label bold"> Wingdings, symbols, and emojis! Note: Emojis don't get skipped around, while symbols do</p>
     <div id="text">❄︎⍓︎◻︎♏︎ ⍓︎ا□︎◆︎❒︎ ⧫︎♏︎⌧︎⧫︎ ♒︎♏︎ ❒︎♏︎📬︎ 🕆︎⬧︎♏︎ ♋︎●︎●︎ ♍︎♋︎◻︎⬧︎ ♐︎□︎❒︎ ⬥︎  ♎︎ ♑︎♋︎⬧︎⧫︎♏︎❒︎🕯︎⬧︎ ●︎♋︎■︎♑︎◆︎♋︎♑︎♏︎ 🖳︎✆︎
 ❞︎✏︎@✁︎ 👓︎🕭︎♈︎🕮︎🖂︎🕿︎ ✆︎♉︎🖃︎♊︎📂︎📄︎🗏︎🗐︎ 🗄︎⌛︎🖮︎🖰︎🖲︎📁︎📫︎🖬︎❑︎⬥︎♏︎  ❒︎⧫︎⍓︎◆︎♓︎□︎ ◻︎☯︎☸︎ॐ︎ ❀︎❝︎✿︎❑︎⬥︎♏︎ ❒︎⧫︎⍓︎◆︎♓︎  □︎◻︎♋︎⬧︎♎︎♐︎ ♑︎ ♒︎🙰🙵●︎🖳︎ ✂︎♋︎⬧︎♎︎♐︎♑︎ ♒︎🙰🙵●︎🖴︎🕯︎⌘︎ ⌧︎♍︎❖︎♌︎■︎❍︎📪︎📬︎📭︎⌘︎⌧︎ ♍︎❖︎ ♌︎■︎❍︎🖫︎ ✇︎✍︎✍︎∫</div>
 
